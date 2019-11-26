@@ -68,4 +68,10 @@ section.cookies{
   .navbar-brand img {
     height: 60px;
   }
+h2, p {
+    text-align: center;
+}
+p:hover{
+    color: red;
+}
 }

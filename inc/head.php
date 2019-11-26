@@ -1,3 +1,6 @@
+<?php session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,11 +46,17 @@
                             Cart
                         </a>
                     </li>
+                     <?php if (isset($_SESSION['Username'])) {
+                    ?>
+                         <li><a type="submit"  href="../inc/deco.php">déconnexion</a></li>
+                        <?php } ?>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
-    <div class="container-fluid text-right">
-        <strong>Hello Wilder !</strong>
+    <div class="container-fluid text-center">
+        <strong><?php if (isset($_SESSION['Username'])) {echo 'Hello ' . $_SESSION['Username'] . ' !';}
+            ?>
+        </strong>
     </div>
 </header>

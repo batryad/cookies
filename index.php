@@ -1,5 +1,51 @@
 <?php require 'inc/data/products.php'; ?>
 <?php require 'inc/head.php'; ?>
+<?php
+
+if (empty($_SESSION['Username'])){
+    header('location: login.php');
+
+}
+if(isset($_GET['add_to_cart'])){
+    $cookieAdd=$_GET['add_to_cart'];
+    switch ($cookieAdd) {
+        case 46:
+            if(!isset($_COOKIE['cookie']['pecan'])) {
+                setcookie("cookie[pecan]", 1, 0);
+            } else {
+                setcookie('cookie[pecan]', $_COOKIE['cookie']['pecan'] + 1, 0);
+            }
+            var_dump($_COOKIE['cookie']);
+            break;
+        case 36:
+            if(!isset($_COOKIE['cookie']['chips'])) {
+                setcookie("cookie[chips]", 1, 0);
+            } else {
+                setcookie('cookie[chips]', $_COOKIE['cookie']['chips'] + 1, 0);
+            }
+            var_dump($_COOKIE['cookie']);
+            break;
+        case 58:
+            if(!isset($_COOKIE['cookie']['chocolate'])) {
+                setcookie("cookie[chocolate]", 1, 0);
+            } else {
+                setcookie('cookie[chocolate]', $_COOKIE['cookie']['chocolate'] + 1, 0);
+            }
+            var_dump($_COOKIE['cookie']);
+            break;
+        case 32:
+            if(!isset($_COOKIE['cookie']['mms'])) {
+                setcookie("cookie[mms]", 1, 0);
+            } else {
+                setcookie('cookie[mms]', $_COOKIE['cookie']['mms'] + 1, 0);
+            }
+            var_dump($_COOKIE['cookie']);
+            break;
+        default:
+            echo "Aucun cookie sélectionné";
+    }
+}
+?>
 <section class="cookies container-fluid">
     <div class="row">
         <?php foreach ($catalog as $id => $cookie) { ?>
@@ -18,4 +64,6 @@
         <?php } ?>
     </div>
 </section>
-<?php require 'inc/foot.php'; ?>
+<?php
+require 'inc/foot.php';
+?>
